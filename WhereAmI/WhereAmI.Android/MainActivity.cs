@@ -19,7 +19,18 @@ namespace WhereAmI.Droid
 
             base.OnCreate(savedInstanceState);
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
+
+            //#### Necessário para trabalhar com o Xamarin.Essentials no Android #####
+            Xamarin.Essentials.Platform.Init(this, savedInstanceState);
+
             LoadApplication(new App());
+        }
+
+        //#### Necessário para trabalhar com o Xamarin.Essentials no Android #####
+        public override void OnRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Android.Content.PM.Permission[] grantResults)
+        {
+            Xamarin.Essentials.Platform.OnRequestPermissionsResult(requestCode, permissions, grantResults);
+            base.OnRequestPermissionsResult(requestCode, permissions, grantResults);
         }
     }
 }

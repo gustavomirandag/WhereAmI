@@ -2,13 +2,18 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:WhereAmI"
+             xmlns:maps="clr-namespace:Xamarin.Forms.Maps;assembly=Xamarin.Forms.Maps"
              x:Class="WhereAmI.MainPage">
 
-    <StackLayout>
-        <!-- Place new controls here -->
-        <Label Text="Welcome to Xamarin.Forms!" 
-           HorizontalOptions="Center"
-           VerticalOptions="CenterAndExpand" />
-    </StackLayout>
+
+        <StackLayout Padding="30">
+            <maps:Map WidthRequest="340" HeightRequest="400"
+                x:Name="MyMap"
+                IsShowingUser="True"
+                MapType="Street" />
+            <Label x:Name="LabelLat"></Label>
+            <Label x:Name="LabelLong"></Label>
+            <Button x:Name="ButtonGetLocation" Text="Where Am I?"></Button>
+        </StackLayout>
 
 </ContentPage>
